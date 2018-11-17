@@ -1,7 +1,7 @@
 .PHONY: default
 
 # BEGIN self-aware-makefiles
-AUTODEP=.maketmp/$$@
+SELFAWARE=.maketmp/$$@
 .maketmp/%: $(MAKEFILE_LIST)
 	@mkdir -p .maketmp
 	@make -k -B -n $* > $@.tmp
@@ -12,18 +12,18 @@ AUTODEP=.maketmp/$$@
 
 default: step5.tmp 
 
-step5.tmp: step4.tmp ${AUTODEP}
+step5.tmp: step4.tmp ${SELFAWARE}
 	uniq -c $< > $@
 
-step4.tmp: step3.tmp ${AUTODEP}
+step4.tmp: step3.tmp ${SELFAWARE}
 	sort $< > $@
 
-step3.tmp: step1.tmp step2.tmp ${AUTODEP}
-	rev step1.tmp step2.tmp > $@
+step3.tmp: step1.tmp step2.tmp ${SELFAWARE}
+	cat step1.tmp step2.tmp > $@
 
-step2.tmp: step1.tmp ${AUTODEP}
+step2.tmp: step1.tmp ${SELFAWARE}
 	tac $< > $@
 
-step1.tmp: input.txt ${AUTODEP}
+step1.tmp: input.txt ${SELFAWARE}
 	cp $< $@
 

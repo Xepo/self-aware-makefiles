@@ -1,7 +1,7 @@
 .PHONY: default
 
 # BEGIN self-aware-makefiles
-AUTODEP=.maketmp/$$@
+SELFAWARE=.maketmp/$$@
 .maketmp/%: $(MAKEFILE_LIST)
 	@mkdir -p .maketmp
 	@make -k -B -n $* > $@.tmp
@@ -11,4 +11,4 @@ AUTODEP=.maketmp/$$@
 # END self-aware-makefiles
 
 # YOUR RULES HERE
-# Add ${AUTODEP} to the list of dependencies for any rule you want makefile to consider unclean when the recipe changes
+# Add ${SELFAWARE} to the list of dependencies for any rule you want makefile to consider unclean when the recipe changes
