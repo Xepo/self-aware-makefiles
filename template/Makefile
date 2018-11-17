@@ -11,4 +11,4 @@ SELFAWARE=.maketmp/$$@
 # END self-aware-makefiles
 
 # YOUR RULES HERE
-# Add ${SELFAWARE} to the list of dependencies for any rule you want makefile to consider unclean when the recipe changes
+# Add ${SELFAWARE} to the list of dependencies for any rule that you want Make to consider unclean when the recipe changes
