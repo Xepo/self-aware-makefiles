@@ -14,3 +14,4 @@ This seems like it should be built into make, or at least available as an extens
 - Should be able to tell Make to add ${SELFAWARE} as a dependency for every rule.  But match-anything rules are too restrictive.
 - '$^' becomes useless, since one of the dependencies of every target is now a tmp file that the self-aware process spits out.
 - Haven't tested with directory hierarchies
+- should be able to do something simpler than calling out to bash to check if the files are different
