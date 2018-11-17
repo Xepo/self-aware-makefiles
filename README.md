@@ -13,4 +13,4 @@ This seems like it should be built into make, or at least available as an extens
 - Allow Makefiles to have different names than 'Makefile'
 - Should be able to tell Make to add ${SELFAWARE} as a dependency for every rule.  But match-anything rules are too restrictive.
 - '$^' becomes useless, since one of the dependencies of every target is now a tmp file that the self-aware process spits out.
-- Haven't tried to get this to work if you have multiple directories in a project with multiple makefiles depending on each other
+- Haven't tested with directory hierarchies
